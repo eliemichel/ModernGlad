@@ -22,9 +22,24 @@
 
 # This dictionnary holds the list of OpenGL functions made depreciated, along
 # with some help message displayed as a warning when using it.
+# Values can be either a single word, replaced by "Use <word> instead." or a
+# sentence, used as is.
 depreciated_functions = {
-	"glGenTextures": "Use glCreateTextures instead.",
-	"glGenBuffers": "Use glCreateBuffers instead."
+	"glGenTextures": "glCreateTextures",
+	"glGenBuffers": "glCreateBuffers",
+	"glActiveTexture": "Use glBindTextureUnit instead of glActiveTexture+glBindTexture.",
+	"glTexParameterf": "glTextureParameterf",
+	"glTexParameteri": "glTextureParameteri",
+	"glTexParameterfv": "glTextureParameterfv",
+	"glTexParameteriv": "glTextureParameteriv",
+	"glTexParameterIiv": "glTextureParameterIiv",
+	"glTexParameterIuiv": "glTextureParameterIuiv",
+	"glTexSubImage1D": "glTextureSubImage1D",
+	"glTexSubImage2D": "glTextureSubImage2D",
+	"glTexSubImage3D": "glTextureSubImage3D",
+	"glTexImage1D": "glTextureStorage1D",
+	"glTexImage2D": "glTextureStorage2D",
+	"glTexImage3D": "glTextureStorage3D",
 }
 
 ###############################################################################
@@ -66,6 +81,8 @@ def main():
 	with open(header_file, "w") as f:
 		f.write(MODERN_GLAD_BEGIN)
 		for func, reason in depreciated_functions.items():
+			if " " not in reason:
+				reason = "Use {} instead.".format(reason)
 			f.write(MODERN_GLAD_FUNCTION_TPL.format(func, reason))
 		f.write(MODERN_GLAD_END)
 
