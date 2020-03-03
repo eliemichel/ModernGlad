@@ -37,9 +37,11 @@ add_custom_command(
 	DEPENDS ${GENERATOR_SCRIPT}
 	COMMENT "Generating ModernGLAD"
 )
+add_custom_target(modernglad-generate-files DEPENDS ${MODERN_GLAD_HEADER})
+set_source_files_properties(${MODERN_GLAD_HEADER} PROPERTIES GENERATED TRUE)
 
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/null.c "")
 add_library(modernglad STATIC ${MODERN_GLAD_HEADER} ${CMAKE_CURRENT_BINARY_DIR}/null.c)
 target_include_directories(modernglad PUBLIC ${MODERN_GLAD_INCLUDE_DIR})
 target_link_libraries(modernglad PUBLIC glad)
-set_target_properties(modernglad PROPERTIES LINKER_LANGUAGE CXX)
+add_dependencies(modernglad modernglad-generate-files)
