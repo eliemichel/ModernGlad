@@ -24,8 +24,12 @@
 # with some help message displayed as a warning when using it.
 # Values can be either a single word, replaced by "Use <word> instead." or a
 # sentence, used as is.
+# Some references:
+#  - http://on-demand.gputechconf.com/siggraph/2014/presentation/SG4121-OpenGL-Update-NVIDIA-GPUs.pdf (p22+)
 depreciated_functions = {
+# Textures
 	"glGenTextures": "glCreateTextures",
+	"glBindTexture": "There should be no need to bind a Texture object if you use DSA functions like glCreateTextures.",
 	"glGenBuffers": "glCreateBuffers",
 	"glActiveTexture": "Use glBindTextureUnit instead of glActiveTexture+glBindTexture.",
 	"glTexParameterf": "glTextureParameterf",
@@ -40,6 +44,13 @@ depreciated_functions = {
 	"glTexImage1D": "glTextureStorage1D",
 	"glTexImage2D": "glTextureStorage2D",
 	"glTexImage3D": "glTextureStorage3D",
+
+	"glGetCompressedTexImage": "glGetCompressedTextureImage",
+	"glGetnCompressedTexImage": "glGetCompressedTextureImage",
+	"glGetTexImage": "glGetTextureImage",
+	"glGetnTexImage": "glGetTextureImage",
+
+	# Uniforms
 	"glUniform1f": "glProgramUniform1f",
 	"glUniform2f": "glProgramUniform2f",
 	"glUniform3f": "glProgramUniform3f",
@@ -73,6 +84,73 @@ depreciated_functions = {
 	"glUniformMatrix4x2fv": "glProgramUniformMatrix4x2fv",
 	"glUniformMatrix3x4fv": "glProgramUniformMatrix3x4fv",
 	"glUniformMatrix4x3fv": "glProgramUniformMatrix4x3fv",
+
+	# Renderbuffers
+	"glGenRenderbuffers": "glCreateRenderbuffers",
+	"glBindRenderbuffer": "There should be no need to bind a Renderbuffer object if you use DSA functions like glCreateRenderbuffers.",
+	"glGetRenderbufferParameteriv": "glGetNamedRenderbufferParameteriv",
+
+	# Framebuffers
+	"glGenFramebuffers": "glCreateFramebuffers",
+	"glBindFramebuffer": "There should be no need to bind a Framebuffer object if you use DSA functions like glCreateFramebuffers.",
+	"glFramebufferTexture": "glNamedFramebufferTexture",
+	"glFramebufferTextureLayer": "glNamedFramebufferTextureLayer",
+	"glDrawBuffer": "glNamedFramebufferDrawBuffer",
+	"glDrawBuffers": "glNamedFramebufferDrawBuffers",
+	"glReadBuffer": "glNamedFramebufferReadBuffer",
+	"glInvalidateFramebufferSubData": "glInvalidateNamedFramebufferSubData",
+	"glInvalidateFramebufferData": "glInvalidateNamedFramebufferData",
+	"glClearBufferiv": "glClearNamedFramebufferiv",
+	"glClearBufferuiv": "glClearNamedFramebfferuiv",
+	"glClearBufferfv": "glClearNamedFramebufferfv",
+	"glClearBufferfi": "glClearNamedFramebufferfi",
+	"glBlitFramebuffer": "glBlitNamedFramebuffer",
+	"glCheckFramebufferStatus": "glCheckNamedFramebufferStatus",
+	"glFramebufferParameteri": "glNamedFramebufferParameteri",
+	"glGetFramebufferParameteriv": "glGetNamedFramebufferParameteriv",
+	"glGetFramebufferAttachmentParameteriv": "glGetNamedFramebufferAttachmentParameteriv",
+
+	# Buffers
+	"glGenBuffers": "glCreateBuffers",
+	"glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
+	"glBufferSubData": "glNamedBufferSubData",
+	"glBufferData": "glNamedBufferData",
+	"glCopyBufferSubData": "glCopyNamedBufferSubData",
+	"glClearBufferSubData": "glClearBufferSubData",
+	"glClearBufferData": "glClearBufferData",
+	"glMapBuffer": "glMapNamedBuffer",
+	"glMapBufferRange": "glMapNamedBufferRange",
+	"glUnmapBuffer": "glUnmapNamedBuffer",
+	"glFlushMappedBufferRange": "glFlushMappedNamedBufferRange",
+	"glGetBufferParameteriv": "glGetNamedBufferParameteriv",
+	"glGetBufferParameteri64v": "glGetNamedBufferParameteri64v",
+	"glGetBufferPointerv": "glGetNamedBufferPointerv",
+	"glGetBufferSubData": "glGetNamedBufferSubData",
+
+	# Transform Feedbacks
+	"glGenTransformFeedbacks": "glCreateTransformFeedbacks",
+	"glBindTransformFeedback": "There should be no need to bind a Transform Feedback object if you use DSA functions like glCreateTransformFeedbacks.",
+	"glBindBufferBase": "glTransformFeedbackBufferBase",
+	"glBindBufferRange": "glTransformFeedbackBufferRange",
+
+	# Vertex Arrays
+	"glGenVertexArrays": "glCreateVertexArrays",
+	"glBindVertexArray": "There should be no need to bind a Vertex Array object if you use DSA functions like glCreateVertexArrays.",
+	"glEnableVertexAttribArray": "glEnableVertexArrayAttrib",
+	"glDisableVertexAttribArray": "glDisableVertexArrayAttrib",
+	"glBindVertexBuffer": "glVertexArrayVertexBuffer",
+	"glBindVertexBuffers": "glVertexArrayVertexBuffers",
+	"glVertexAttribFormat": "glVertexArrayAttribFormat",
+	"glVertexAttribIFormat": "glVertexArrayAttribIFormat",
+	"glVertexAttribLFormat": "glVertexArrayAttribLFormat",
+	"glVertexBindingDivisor": "glVertexArrayBindingDivisor",
+
+	# Robustness
+	"glReadPixels": "This can lead to memory overflows. Use glReadnPixels for safe read instead.",
+	"glGetUniformfv": "This can lead to memory overflows. Use glGetnUniformfv for safe get instead.",
+	"glGetUniformiv": "This can lead to memory overflows. Use glGetnUniformiv for safe get instead.",
+	"glGetUniformuiv": "This can lead to memory overflows. Use glGetnUniformuiv for safe get instead.",
+	"glGetUniformdv": "This can lead to memory overflows. Use glGetnUniformdv for safe get instead.",
 }
 
 ###############################################################################

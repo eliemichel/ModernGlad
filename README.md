@@ -3,6 +3,8 @@ ModernGlad
 
 It is notably hard to keep track of what "modern OpenGL" means, provided the vast amount of outdated OpenGL tutorials around. Plus, even slightly outdated, some are still very relevant, so no need to dump them away. What if there would just be some **compile time message suggesting what more modern function to look at** when using some outdated function? Well this is the goal of this little companion for the [glad](https://github.com/Dav1dde/glad) OpenGL loader library.
 
+The general rule of thumb to do proper OpenGL nowadays (2020) is tu use *Direct State Access* rather than stateful functions "bind" ones.
+
 Usage
 -----
 
