@@ -92,7 +92,7 @@ depreciated_functions = {
 
 	# Framebuffers
 	"glGenFramebuffers": "glCreateFramebuffers",
-	"glBindFramebuffer": "There should be no need to bind a Framebuffer object if you use DSA functions like glCreateFramebuffers.",
+	# "glBindFramebuffer": "There should be no need to bind a Framebuffer object if you use DSA functions like glCreateFramebuffers.",
 	"glFramebufferTexture": "glNamedFramebufferTexture",
 	"glFramebufferTextureLayer": "glNamedFramebufferTextureLayer",
 	"glDrawBuffer": "glNamedFramebufferDrawBuffer",
@@ -112,7 +112,7 @@ depreciated_functions = {
 
 	# Buffers
 	"glGenBuffers": "glCreateBuffers",
-	"glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
+	# "glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(GL_ARRAY_BUFFER), use glVertexArrayVertexBuffer instead. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
 	"glBufferSubData": "glNamedBufferSubData",
 	"glBufferData": "glNamedBufferData",
 	"glCopyBufferSubData": "glCopyNamedBufferSubData",
@@ -130,12 +130,12 @@ depreciated_functions = {
 	# Transform Feedbacks
 	"glGenTransformFeedbacks": "glCreateTransformFeedbacks",
 	"glBindTransformFeedback": "There should be no need to bind a Transform Feedback object if you use DSA functions like glCreateTransformFeedbacks.",
-	"glBindBufferBase": "glTransformFeedbackBufferBase",
+	# "glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER)": "glTransformFeedbackBufferBase",  # cannot restrict use of the function, glBindBufferBase is still needed for uniform blocks for instance
 	"glBindBufferRange": "glTransformFeedbackBufferRange",
 
 	# Vertex Arrays
 	"glGenVertexArrays": "glCreateVertexArrays",
-	"glBindVertexArray": "There should be no need to bind a Vertex Array object if you use DSA functions like glCreateVertexArrays.",
+	# "glBindVertexArray": "There should be no need to bind a Vertex Array object if you use DSA functions like glCreateVertexArrays.",  # I don't see how to avoid this
 	"glEnableVertexAttribArray": "glEnableVertexArrayAttrib",
 	"glDisableVertexAttribArray": "glDisableVertexArrayAttrib",
 	"glBindVertexBuffer": "glVertexArrayVertexBuffer",
