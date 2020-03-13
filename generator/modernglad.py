@@ -44,7 +44,13 @@ depreciated_functions = {
 	"glTexImage1D": "glTextureStorage1D",
 	"glTexImage2D": "glTextureStorage2D",
 	"glTexImage3D": "glTextureStorage3D",
-
+	"glGetTexParameteriv": "glGetTextureParameteriv",
+	"glGetTexParameterfv": "glGetTextureParameterfv",
+	"glGetTexParameterIiv": "glGetTextureParameterIiv",
+	"glGetTexParameterIuiv": "glGetTextureParameterIuiv",
+	"glGetTexLevelParameteriv": "glGetTextureLevelParameteriv",
+	"glGetTexLevelParameterfv": "glGetTextureLevelParameterfv",
+	
 	"glGetCompressedTexImage": "glGetCompressedTextureImage",
 	"glGetnCompressedTexImage": "glGetCompressedTextureImage",
 	"glGetTexImage": "glGetTextureImage",
@@ -112,7 +118,7 @@ depreciated_functions = {
 
 	# Buffers
 	"glGenBuffers": "glCreateBuffers",
-	# "glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(GL_ARRAY_BUFFER), use glVertexArrayVertexBuffer instead. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
+	"glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(GL_ARRAY_BUFFER), use glVertexArrayVertexBuffer instead. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
 	"glBufferSubData": "glNamedBufferSubData",
 	"glBufferData": "glNamedBufferData",
 	"glCopyBufferSubData": "glCopyNamedBufferSubData",
