@@ -118,7 +118,7 @@ depreciated_functions = {
 
 	# Buffers
 	"glGenBuffers": "glCreateBuffers",
-	"glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(GL_ARRAY_BUFFER), use glVertexArrayVertexBuffer instead. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
+	#"glBindBuffer": "There should be no need to bind a Buffer object if you use DSA functions like glCreateBuffers. If you want an equivalent of glBindBuffer(GL_ARRAY_BUFFER), use glVertexArrayVertexBuffer instead. If you want an equivalent of glBindBuffer(ELEMENT_ARRAY_BUFFER), use glVertexArrayElementBuffer instead.",
 	"glBufferSubData": "glNamedBufferSubData",
 	"glBufferData": "glNamedBufferData",
 	"glCopyBufferSubData": "glCopyNamedBufferSubData",
