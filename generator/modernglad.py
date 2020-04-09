@@ -151,6 +151,9 @@ depreciated_functions = {
 	"glVertexAttribLFormat": "glVertexArrayAttribLFormat",
 	"glVertexBindingDivisor": "glVertexArrayBindingDivisor",
 
+	# Queries
+	"glGenQueries": "glCreateQueries",
+
 	# Robustness
 	"glReadPixels": "This can lead to memory overflows. Use glReadnPixels for safe read instead.",
 	"glGetUniformfv": "This can lead to memory overflows. Use glGetnUniformfv for safe get instead.",
