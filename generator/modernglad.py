@@ -1,7 +1,7 @@
-# Copyright (c) 2020 -- Élie Michel <elie.michel@telecom-paris.fr>
+# Copyright (c) 2020 -- Elie Michel <elie.michel@telecom-paris.fr>
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the “Software”), to
+# of this software and associated documentation files (the "Software"), to
 # deal in the Software without restriction, including without limitation the
 # rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
 # sell copies of the Software, and to permit persons to whom the Software is
@@ -10,7 +10,7 @@
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
 #
-# The Software is provided “as is”, without warranty of any kind, express or
+# The Software is provided "as is", without warranty of any kind, express or
 # implied, including but not limited to the warranties of merchantability,
 # fitness for a particular purpose and non-infringement. In no event shall the
 # authors or copyright holders be liable for any claim, damages or other
@@ -193,10 +193,15 @@ MODERN_GLAD_FUNCTION_TPL = """
 import os
 import sys
 
+# polyfill for python2
+def makedirs(dirname, exist_ok=False):
+    if not exist_ok or not os.path.exists(dirname):
+        os.makedirs(dirname)
+
 def main():
 	header_file = sys.argv[1]
 	print("Generating ModernGLAD header at '{}'...".format(header_file))
-	os.makedirs(os.path.dirname(header_file), exist_ok=True)
+	makedirs(os.path.dirname(header_file), exist_ok=True)
 
 	with open(header_file, "w") as f:
 		f.write(MODERN_GLAD_BEGIN)
